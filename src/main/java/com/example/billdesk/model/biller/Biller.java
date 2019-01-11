@@ -1,6 +1,8 @@
 
 package com.example.billdesk.model.biller;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,20 +15,33 @@ public class Biller implements Serializable
     private String objectid;
 
     private String sourceid;
+    @JsonProperty("biller_legal_name")
     private String billerLegalName;
+    @JsonProperty("biller_name")
     private String billerName;
+    @JsonProperty("biller_location")
     private String billerLocation;
+    @JsonProperty("biller_location_desc")
     private String billerLocationDesc;
+    @JsonProperty("biller_category")
     private String billerCategory;
+    @JsonProperty("biller_reg_address")
     private String billerRegAddress;
+    @JsonProperty("biller_reg_city")
     private String billerRegCity;
+    @JsonProperty("biller_reg_pin")
     private String billerRegPin;
+    @JsonProperty("biller_reg_state")
     private String billerRegState;
+    @JsonProperty("biller_reg_country")
     private String billerRegCountry;
     private String isbillerbbps;
     private String currency;
+    @JsonProperty("biller_type")
     private String billerType;
+    @JsonProperty("biller_mode")
     private String billerMode;
+    @JsonProperty("allowed_payment_methods")
     private List<AllowedPaymentMethod> allowedPaymentMethods = null;
     private List<PaymentChannel> paymentChannels = null;
     private String billerEffectiveFrom;
