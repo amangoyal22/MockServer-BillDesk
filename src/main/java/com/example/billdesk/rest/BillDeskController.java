@@ -25,6 +25,7 @@ public class BillDeskController {
     public Health getHealth(){
         return healthService.getHealth();
     }
+
     @PostMapping("/addCustomer")
     public Customer addCust(@RequestBody Customer customer){
         return customerService.addCustomer(customer);
@@ -61,10 +62,28 @@ public class BillDeskController {
     public BillerAccount createBillerAcc(@RequestBody BillerAccount billerAccount){
         return billerAccountService.add_billerAccount(billerAccount);
     }
-
     @PostMapping("/activateBillerAccount")
     public BillerAccount activateBillerAcc(@RequestBody BillerAccount billerAccount){
         return billerAccountService.activate_billerAccount(billerAccount);
     }
+    @GetMapping("/getBillerAccount")
+    public BillerAccount getBillerAcc(){
+        return billerAccountService.retrieve_billerAccount();
+    }
+    @GetMapping("/geBillerAccounts")
+    public BillerAccount getBillerAccs(){
+        return billerAccountService.all_billerAccounts();
+    }
+    @PutMapping("/modifyBillerAccount")
+    public BillerAccount modifyBillerAcc(@RequestBody BillerAccount billerAccount){
+        return billerAccountService.modify_billerAccounts(billerAccount);
+    }
+    @DeleteMapping("/activateBillerAccount")
+    public BillerAccount deleteBillerAcc(){
+        return billerAccountService.delete_billerAccount();
+    }
+
+    //TODO: GET BILLS
+    //TODO: MAKE PAYMENTS
 
 }
