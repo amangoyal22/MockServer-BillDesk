@@ -1,12 +1,10 @@
 package com.example.billdesk.rest;
 
 import com.example.billdesk.model.biller.Biller;
+import com.example.billdesk.model.billeraccount.BillerAccount;
 import com.example.billdesk.model.customer.Customer;
 import com.example.billdesk.model.health.Health;
-import com.example.billdesk.service.BillerListService;
-import com.example.billdesk.service.CustomerService;
-import com.example.billdesk.service.HealthImp;
-import com.example.billdesk.service.HealthService;
+import com.example.billdesk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +18,8 @@ public class BillDeskController {
     private CustomerService customerService;
     @Autowired
     private BillerListService billerListService;
+    @Autowired
+    private BillerAccountService billerAccountService;
 
     @GetMapping("/health")
     public Health getHealth(){
@@ -53,6 +53,18 @@ public class BillDeskController {
     @GetMapping("/getBillersCat")
     public Biller gBillersC(){
         return billerListService.getBillersCategorically();
+    }
+
+
+
+    @PostMapping("/createBillerAccount")
+    public BillerAccount createBillerAcc(@RequestBody BillerAccount billerAccount){
+        return billerAccountService.add_billerAccount(billerAccount);
+    }
+
+    @PostMapping("/activateBillerAccount")
+    public BillerAccount activateBillerAcc(@RequestBody BillerAccount billerAccount){
+        return billerAccountService.activate_billerAccount(billerAccount);
     }
 
 }
