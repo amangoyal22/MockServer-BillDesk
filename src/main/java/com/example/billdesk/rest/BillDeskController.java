@@ -100,7 +100,8 @@ public class BillDeskController {
 
 
     //TODO: GET BILLS CHECK IT
-    //TODO: MAKE PAYMENTS
-    //TODO: Auto Pay
+    //TODO: MAKE PAYMENTS Check IT
+    //TODO: MAKE ONEVIEW CHECK IT
+    //TODO: Auto Pay ask adarsh
 
 }
