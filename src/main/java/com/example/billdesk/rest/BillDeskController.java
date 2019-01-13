@@ -1,5 +1,6 @@
 package com.example.billdesk.rest;
 
+import com.example.billdesk.model.bill.Bill;
 import com.example.billdesk.model.biller.Biller;
 import com.example.billdesk.model.billeraccount.BillerAccount;
 import com.example.billdesk.model.customer.Customer;
@@ -20,6 +21,8 @@ public class BillDeskController {
     private BillerListService billerListService;
     @Autowired
     private BillerAccountService billerAccountService;
+    @Autowired
+    private BillService billService;
 
     @GetMapping("/health")
     public Health getHealth(){
@@ -83,7 +86,20 @@ public class BillDeskController {
         return billerAccountService.delete_billerAccount();
     }
 
-    //TODO: GET BILLS
+
+
+
+    @GetMapping("/getBill")
+    public Bill getBill(){
+        return billService.getBill();
+    }
+    @GetMapping("/geBills")
+    public Bill getBills(){
+        return billService.getBills();
+    }
+
+
+    //TODO: GET BILLS CHECK IT
     //TODO: MAKE PAYMENTS
 
 }
