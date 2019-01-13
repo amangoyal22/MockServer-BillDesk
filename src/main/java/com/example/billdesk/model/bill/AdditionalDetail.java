@@ -33,6 +33,12 @@ public class AdditionalDetail implements Serializable
         this.value = value;
         this.billfor = billfor;
     }
+    public AdditionalDetail(String seq, String label, String value) {
+        super();
+        this.seq = seq;
+        this.label = label;
+        this.value = value;
+    }
 
     public String getSeq() {
         return seq;

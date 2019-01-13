@@ -1,6 +1,8 @@
 
 package com.example.billdesk.model.billeraccount;
 
+import com.example.billdesk.model.oneview.Paymentaccount;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class BillerAccount implements Serializable
     private String currency;
     private String frequency;
     private PaymentAccount paymentAccount;
+    private Paymentaccount paymentacc;
     private Customer customer;
     private Metadata metadata;
     /**
@@ -76,6 +79,23 @@ public class BillerAccount implements Serializable
         this.paymentAccount = paymentAccount;
         this.customer = customer;
         this.metadata = metadata;
+    }
+
+    public BillerAccount(String billeraccountid, String objectid, String billerid, String shortName, List<Authenticator> authenticators, String status, String registrationDate, String autopayStatus, String autopayStartDate, String autopayEndDate, String autopayAmount, String frequency, Paymentaccount paymentaccount) {
+        super();
+        this.billeraccountid = billeraccountid;
+        this.objectid = objectid;
+        this.billerid = billerid;
+        this.shortName = shortName;
+        this.authenticators = authenticators;
+        this.status = status;
+        this.registrationDate = registrationDate;
+        this.autopayStatus = autopayStatus;
+        this.autopayStartDate = autopayStartDate;
+        this.autopayEndDate = autopayEndDate;
+        this.autopayAmount = autopayAmount;
+        this.frequency = frequency;
+        this.paymentacc = paymentaccount;
     }
 
     public String getBilleraccountid() {

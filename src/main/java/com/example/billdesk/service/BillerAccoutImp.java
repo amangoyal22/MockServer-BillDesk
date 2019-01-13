@@ -42,7 +42,7 @@ public class BillerAccoutImp implements BillerAccountService {
         String activationType = "rules";//or onhold
         String customerID = "123456";
         String url = CREATE_BILLER_ACCOUNT_P1+customerID+CREATE_BILLER_ACCOUNT_P2+activationType;
-        HttpHeaders headers = headerGene.headergenrator("","POST", url);
+        HttpHeaders headers = headerGene.headergenrator(billerAccount.toString(),"POST", url);
 
         HttpEntity<BillerAccount> entity = new HttpEntity<>(billerAccount,headers);
 
@@ -62,7 +62,7 @@ public class BillerAccoutImp implements BillerAccountService {
         String BillerAccountID = "";//TODO: take from records
         String url = ACTIVATE_BILLER_ACCOUNT_P1+customerID+ACTIVATE_BILLER_ACCOUNT_P2+BillerAccountID+"/activate";
 
-        HttpHeaders headers = headerGene.headergenrator("","POST", url);
+        HttpHeaders headers = headerGene.headergenrator(billerAccount.toString(),"POST", url);
 
         HttpEntity<BillerAccount> entity = new HttpEntity<>(billerAccount,headers);
 
@@ -121,7 +121,7 @@ public class BillerAccoutImp implements BillerAccountService {
         String customerID = "123456";
         String BillerAccountID = "";//TODO: take from records
         String url = ACTIVATE_BILLER_ACCOUNT_P1+customerID+ACTIVATE_BILLER_ACCOUNT_P2+BillerAccountID;
-        HttpHeaders headers = headerGene.headergenrator("","PUT", url);
+        HttpHeaders headers = headerGene.headergenrator(billerAccount.toString(),"PUT", url);
         HttpEntity<BillerAccount> entity = new HttpEntity<>(billerAccount,headers);
         //TODO: MAP Accordding to JSON
         ResponseEntity<BillerAccount> response = Template.exchange(baseurl+url,//TODO: change to original api

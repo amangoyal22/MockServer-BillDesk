@@ -13,6 +13,7 @@ public class PaymentAccount implements Serializable
     private String paymentMethod;
     private String cardStart;
     private String cardEnd;
+    private String cardholderName;
 
     /**
      * No args constructor for use in serialization
@@ -39,6 +40,7 @@ public class PaymentAccount implements Serializable
         this.cardStart = cardStart;
         this.cardEnd = cardEnd;
     }
+
 
     public String getPaymentaccountid() {
         return paymentaccountid;

@@ -101,5 +101,6 @@ public class BillDeskController {
 
     //TODO: GET BILLS CHECK IT
     //TODO: MAKE PAYMENTS
+    //TODO: Auto Pay
 
 }

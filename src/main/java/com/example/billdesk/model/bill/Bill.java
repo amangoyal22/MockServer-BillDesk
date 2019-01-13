@@ -22,6 +22,7 @@ public class Bill implements Serializable
     private String earlyBillduedate;
     private String earlyBilldiscount;
     private String earlyBillamount;
+    private String billperiod;
     private String latePaymentCharges;
     private String latePaymentAmount;
     private String netBillamount;
@@ -84,6 +85,26 @@ public class Bill implements Serializable
         this.latePaymentAmount = latePaymentAmount;
         this.netBillamount = netBillamount;
         this.currency = currency;
+        this.description = description;
+        this.additionalDetails = additionalDetails;
+        this.lineItems = lineItems;
+        this.billstatus = billstatus;
+    }
+    public Bill(String billid, String objectid, String billnumber, String billperiod, String billdate, String billduedate, String billamount, String earlyBillduedate, String earlyBilldiscount, String earlyBillamount, String latePaymentCharges, String latePaymentAmount, String netBillamount, String description, List<AdditionalDetail> additionalDetails, List<LineItem> lineItems, String billstatus) {
+        super();
+        this.billid = billid;
+        this.objectid = objectid;
+        this.billnumber = billnumber;
+        this.billperiod = billperiod;
+        this.billdate = billdate;
+        this.billduedate = billduedate;
+        this.billamount = billamount;
+        this.earlyBillduedate = earlyBillduedate;
+        this.earlyBilldiscount = earlyBilldiscount;
+        this.earlyBillamount = earlyBillamount;
+        this.latePaymentCharges = latePaymentCharges;
+        this.latePaymentAmount = latePaymentAmount;
+        this.netBillamount = netBillamount;
         this.description = description;
         this.additionalDetails = additionalDetails;
         this.lineItems = lineItems;
