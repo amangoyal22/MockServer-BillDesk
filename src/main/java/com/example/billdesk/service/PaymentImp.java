@@ -94,7 +94,7 @@ public class PaymentImp implements PaymentService {
         HttpEntity<Payment> entity = new HttpEntity<>(payment,headers);
         //TODO: MAP Accordding to JSON
         ResponseEntity<Payment> response = Template.exchange(baseurl+url,//TODO: change to original api
-                HttpMethod.GET, entity, Payment.class);
+                HttpMethod.PUT, entity, Payment.class);
         //System.out.println(response.getBody());
         return response.getBody();
     }
@@ -118,7 +118,7 @@ public class PaymentImp implements PaymentService {
         String customerID = "123456";//TODO: take from records
         String paymentID = "ABCTXN34232";//TODO: take from records
         String url = MK_PYMENT_P1+customerID+MK_PYMENT_P2+"/"+paymentID+"/resendotp";
-        HttpHeaders headers = headerGene.headergenrator("","GET", url);
+        HttpHeaders headers = headerGene.headergenrator("","DELETE", url);
         HttpEntity<Payment> entity = new HttpEntity<>(headers);
         //TODO: MAP Accordding to JSON
         ResponseEntity<Payment> response = Template.exchange(baseurl+url,//TODO: change to original api
