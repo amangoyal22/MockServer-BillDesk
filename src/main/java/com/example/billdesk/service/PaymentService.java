@@ -8,6 +8,6 @@ public interface PaymentService {
     public Payment retrievePayment();
     public Payment listPayment();
     public Payment modifyPayment(Payment payment);
-    public Payment stopPayment(Payment payment);
+    public Payment stopPayment();
     public Payment rOtpPayment();
 }

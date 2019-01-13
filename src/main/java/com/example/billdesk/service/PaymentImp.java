@@ -100,12 +100,12 @@ public class PaymentImp implements PaymentService {
     }
 
     @Override
-    public Payment stopPayment(Payment payment){
+    public Payment stopPayment(){
         String customerID = "123456";//TODO: take from records
         String paymentID = "ABCTXN34232";//TODO: take from records
         String url = MK_PYMENT_P1+customerID+MK_PYMENT_P2+"/"+paymentID;
-        HttpHeaders headers = headerGene.headergenrator(payment.toString(),"DELETE", url);
-        HttpEntity<Payment> entity = new HttpEntity<>(payment,headers);
+        HttpHeaders headers = headerGene.headergenrator("","DELETE", url);
+        HttpEntity<Payment> entity = new HttpEntity<>(headers);
         //TODO: MAP Accordding to JSON
         ResponseEntity<Payment> response = Template.exchange(baseurl+url,//TODO: change to original api
                 HttpMethod.DELETE, entity, Payment.class);

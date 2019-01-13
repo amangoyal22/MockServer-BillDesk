@@ -5,6 +5,8 @@ import com.example.billdesk.model.biller.Biller;
 import com.example.billdesk.model.billeraccount.BillerAccount;
 import com.example.billdesk.model.customer.Customer;
 import com.example.billdesk.model.health.Health;
+import com.example.billdesk.model.oneview.Oneview;
+import com.example.billdesk.model.payment.Payment;
 import com.example.billdesk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +25,18 @@ public class BillDeskController {
     private BillerAccountService billerAccountService;
     @Autowired
     private BillService billService;
+    @Autowired
+    private OneViewService oneViewService;
+    @Autowired
+    private PaymentService paymentService;
 
+    //Done Hitting
     @GetMapping("/health")
     public Health getHealth(){
         return healthService.getHealth();
     }
 
+    //Done Hitting
     @PostMapping("/addCustomer")
     public Customer addCust(@RequestBody Customer customer){
         return customerService.addCustomer(customer);
@@ -46,6 +54,7 @@ public class BillDeskController {
         return customerService.deleteCustomer();
     }
 
+    //Done Hitting
     @GetMapping("/getBiller")
     public Biller gBiller(){
         return billerListService.getBiller();
@@ -60,7 +69,7 @@ public class BillDeskController {
     }
 
 
-
+    //Done Hitting
     @PostMapping("/createBillerAccount")
     public BillerAccount createBillerAcc(@RequestBody BillerAccount billerAccount){
         return billerAccountService.add_billerAccount(billerAccount);
@@ -89,6 +98,7 @@ public class BillDeskController {
 
 
 
+
     @GetMapping("/getBill")
     public Bill getBill(){
         return billService.getBill();
@@ -97,6 +107,27 @@ public class BillDeskController {
     public Bill getBills(){
         return billService.getBills();
     }
+
+
+    @GetMapping("/oneview")
+    public Oneview getOneView(){ return oneViewService.getOneview();}
+
+
+    @PostMapping("/makepayment")
+    public Payment makepayment(Payment payment){return paymentService.makePayment(payment);}
+    @PutMapping("/authpayment")
+    public Payment authpayment(Payment payment){return paymentService.authPayment(payment);}
+    @GetMapping("/retrievepayment")
+    public Payment retrievepayment(){return paymentService.retrievePayment();}
+    @GetMapping("/listpayment")
+    public Payment listpayment(){return paymentService.listPayment();}
+    @PutMapping("/modifypayment")
+    public Payment modifypayment(Payment payment){return paymentService.modifyPayment(payment);}
+    @DeleteMapping("/deletepayment")
+    public Payment deletepayment(){return paymentService.stopPayment();}
+    @GetMapping("/resendOTP")
+    public Payment resendOTP(){return paymentService.rOtpPayment();}
+
 
 
     //TODO: GET BILLS CHECK IT
