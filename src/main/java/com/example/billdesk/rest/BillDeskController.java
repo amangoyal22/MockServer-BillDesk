@@ -7,6 +7,7 @@ import com.example.billdesk.model.customer.Customer;
 import com.example.billdesk.model.health.Health;
 import com.example.billdesk.model.oneview.Oneview;
 import com.example.billdesk.model.payment.Payment;
+import com.example.billdesk.model.validation.Validation;
 import com.example.billdesk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,9 @@ public class BillDeskController {
     private OneViewService oneViewService;
     @Autowired
     private PaymentService paymentService;
+    @Autowired
+    private ValidationService validationService;
+
 
     //Done Hitting
     @GetMapping("/health")
@@ -129,11 +133,13 @@ public class BillDeskController {
     public Payment resendOTP(){return paymentService.rOtpPayment();}
 
 
+    @PostMapping("/validatepay")
+    public Validation validatepayment(Validation validation){return validationService.validatePayment(validation)}
 
     //TODO: GET BILLS CHECK IT
     //TODO: MAKE PAYMENTS Check IT
     //TODO: MAKE ONEVIEW CHECK IT
-    //TODO: MAKE VALIDITION
+    //TODO: MAKE VALIDITION Check IT
     //TODO: Auto Pay ask adarsh
 
 }
