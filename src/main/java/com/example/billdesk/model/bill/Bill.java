@@ -31,8 +31,6 @@ public class Bill implements Serializable
     private List<AdditionalDetail> additionalDetails = null;
     private List<LineItem> lineItems = null;
     private String billstatus;
-    private final static long serialVersionUID = -5623479046845790224L;
-
     /**
      * No args constructor for use in serialization
      * 
