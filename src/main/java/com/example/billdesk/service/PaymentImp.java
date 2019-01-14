@@ -50,6 +50,7 @@ public class PaymentImp implements PaymentService {
         String url = MK_PYMENT_P1+customerID+MK_PYMENT_P2+"/"+paymentID+"/authorize";
         HttpHeaders headers = headerGene.headergenrator(payment.toString(),"PUT", url);
         HttpEntity<Payment> entity = new HttpEntity<>(payment,headers);
+        System.out.println(baseurl+url);
         //TODO: MAP Accordding to JSON
         ResponseEntity<Payment> response = Template.exchange(baseurl+url,//TODO: change to original api
                 HttpMethod.PUT, entity, Payment.class);
