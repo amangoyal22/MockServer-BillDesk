@@ -18,9 +18,9 @@ public class ValidationImp implements ValidationService {
     @Value("${mock.base_url}")
     private String baseurl;
 
-    @Value("${billdesk.make_payment_p1}")
+    @Value("${billdesk.validate_pay_p1}")
     private String VL_PYMENT_P1;
-    @Value("${billdesk.make_payment_p2}")
+    @Value("${billdesk.validate_pay_p2}")
     private String VL_PYMENT_P2;
 
 
@@ -37,11 +37,12 @@ public class ValidationImp implements ValidationService {
         HttpHeaders headers = headerGene.headergenrator(validation.toString(),"POST", url);
         HttpEntity<Validation> entity = new HttpEntity<>(validation,headers);
         //TODO: MAP Accordding to JSON
+       // System.out.println("data: "+entity.toString());
+        //System.out.println("url:  "+baseurl+url);
         ResponseEntity<Validation> response = Template.exchange(baseurl+url,//TODO: change to original api
                 HttpMethod.POST, entity, Validation.class);
         //System.out.println(response.getBody());
         return response.getBody();
-
     }
 
 }

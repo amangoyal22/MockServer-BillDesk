@@ -28,6 +28,11 @@ public class Authenticator implements Serializable
         this.parameterName = parameterName;
         this.value = value;
     }
+    public Authenticator(String parameterName, String value) {
+        super();
+        this.parameterName = parameterName;
+        this.value = value;
+    }
 
     public String getSeq() {
         return seq;

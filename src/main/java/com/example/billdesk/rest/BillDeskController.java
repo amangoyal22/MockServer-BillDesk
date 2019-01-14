@@ -1,6 +1,7 @@
 package com.example.billdesk.rest;
 
 import com.example.billdesk.model.bill.Bill;
+
 import com.example.billdesk.model.biller.Biller;
 import com.example.billdesk.model.billeraccount.BillerAccount;
 import com.example.billdesk.model.customer.Customer;
@@ -11,6 +12,8 @@ import com.example.billdesk.model.validation.Validation;
 import com.example.billdesk.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -102,17 +105,17 @@ public class BillDeskController {
 
 
 
-
+    //Done Hitting
     @GetMapping("/getBill")
     public Bill getBill(){
         return billService.getBill();
     }
-    @GetMapping("/geBills")
-    public Bill getBills(){
+    @GetMapping("/getBills")
+    public List<Bill> getBills(){
         return billService.getBills();
     }
 
-
+    //Done Hitting
     @GetMapping("/oneview")
     public Oneview getOneView(){ return oneViewService.getOneview();}
 
@@ -132,14 +135,13 @@ public class BillDeskController {
     @GetMapping("/resendOTP")
     public Payment resendOTP(){return paymentService.rOtpPayment();}
 
-
+    //Done Hitting
     @PostMapping("/validatepay")
     public Validation validatepayment(Validation validation){return validationService.validatePayment(validation);}
 
     //TODO: GET BILLS CHECK IT
     //TODO: MAKE PAYMENTS Check IT
-    //TODO: MAKE ONEVIEW CHECK IT
     //TODO: MAKE VALIDITION Check IT
-    //TODO: Auto Pay ask adarsh
+
 
 }
