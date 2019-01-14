@@ -134,7 +134,7 @@ public class BillDeskController {
 
 
     @PostMapping("/validatepay")
-    public Validation validatepayment(Validation validation){return validationService.validatePayment(validation)}
+    public Validation validatepayment(Validation validation){return validationService.validatePayment(validation);}
 
     //TODO: GET BILLS CHECK IT
     //TODO: MAKE PAYMENTS Check IT
